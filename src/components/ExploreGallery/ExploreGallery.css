@@ -1,0 +1,30 @@
+@reference "../../index.css";
+
+.explore-gallery-section {
+  @apply bg-white min-h-screen flex items-center justify-center py-32;
+}
+
+.explore-container {
+  @apply max-w-7xl mx-auto px-6 text-center w-full;
+}
+
+.explore-line {
+  @apply w-full h-px bg-[#E0E0E0] mb-16;
+}
+
+.explore-line-bottom {
+  @apply w-full h-px bg-[#E0E0E0] mt-16;
+}
+
+.explore-link {
+  @apply inline-flex items-center gap-4 transition-opacity duration-300 hover:opacity-60;
+}
+
+.explore-text {
+  @apply text-sm uppercase tracking-[0.3em] text-[#111111] font-normal;
+  font-family: var(--font-sans);
+}
+
+.explore-link svg {
+  @apply transition-transform duration-300 group-hover:translate-x-2;
+}

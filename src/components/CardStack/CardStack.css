@@ -1,0 +1,283 @@
+@reference "../../index.css";
+
+/* ─────────────────────────────────────────────
+   CARD STACK — Scroll Animation
+   ───────────────────────────────────────────── */
+
+.card-stack {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #F9F9F9;
+}
+
+/* ── Header overlay ── */
+.card-stack__header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.card-stack__label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.card-stack__label-line {
+  display: block;
+  height: 1px;
+  width: 3.5rem;
+  background: rgba(17, 17, 17, 0.2);
+  flex-shrink: 0;
+}
+
+.card-stack__header-count {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: rgba(17, 17, 17, 0.25);
+}
+
+/* ── Viewport com perspectiva 3D ── */
+.card-stack__viewport {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  perspective: 1200px;
+}
+
+/* ── Card individual ── */
+.card-stack__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 20px 60px -15px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.card-stack__card-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Imagem do Card ── */
+.card-stack__card-image-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1 1 65%;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.card-stack__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+/* ── Número Ghost overlay ── */
+.card-stack__card-num {
+  position: absolute;
+  bottom: -1rem;
+  right: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 7vw, 6.5rem);
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  line-height: 1;
+  user-select: none;
+  z-index: 2;
+}
+
+/* ── Corpo de Texto ── */
+.card-stack__card-body {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.card-stack__card-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.card-stack__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── Linha decorativa na base ── */
+.card-stack__card-accent {
+  height: 3px;
+  background: #111;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ── Indicador de scroll ── */
+.card-stack__scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.card-stack__scroll-hint span {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #111;
+}
+
+.card-stack__scroll-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #111;
+  animation: cardStackPulse 2s ease-in-out infinite;
+}
+
+@keyframes cardStackPulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+}
+
+/* ── Counter de cards ── */
+.card-stack__counter {
+  position: absolute;
+  top: 4.5rem;
+  right: 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: rgba(17, 17, 17, 0.3);
+  pointer-events: none;
+  z-index: 30;
+}
+
+.card-stack__counter-current {
+  color: #111;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVIDADE
+   ───────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .card-stack__viewport {
+    width: 320px;
+    height: 440px;
+  }
+
+  .card-stack__card-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .card-stack__card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-stack__card-desc {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .card-stack__viewport {
+    width: 260px;
+    height: 360px;
+  }
+
+  .card-stack__card-body {
+    padding: 1rem 1.25rem;
+    gap: 0.35rem;
+  }
+
+  .card-stack__card-title {
+    font-size: 1.25rem;
+  }
+
+  .card-stack__card-desc {
+    font-size: 0.75rem;
+  }
+
+  .card-stack__card-num {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .card-stack__counter {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .card-stack__card {
+    transition: none !important;
+  }
+
+  @keyframes cardStackPulse {
+    0%, 100% { opacity: 0.3; }
+  }
+}

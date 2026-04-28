@@ -1,0 +1,15 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  min-height: calc(100vh - 80px); /* Ajustado para dar espaço ao navbar */
+}

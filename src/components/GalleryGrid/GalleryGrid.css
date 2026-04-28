@@ -1,0 +1,72 @@
+@reference "../../index.css";
+
+.gallery-grid__container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.gallery-grid {
+  columns: 1;
+  column-gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    columns: 3;
+    column-gap: 16px;
+  }
+}
+
+.gallery-grid__item {
+  @apply relative overflow-hidden cursor-pointer mb-3 lg:mb-4;
+  break-inside: avoid;
+  will-change: transform, clip-path;
+  /* Fundo sutil durante o carregamento */
+  background-color: #f5f5f5;
+}
+
+.gallery-grid__image-wrapper {
+  @apply w-full block relative;
+  will-change: transform;
+  /* Scale extra permanente para criar "sangria" e permitir o parallax extremo de 15% */
+  transform: scale(1.25); 
+}
+
+.gallery-grid__image {
+  @apply w-full h-auto block transition-transform duration-700 ease-out;
+  transform-origin: center center;
+}
+
+.gallery-grid__overlay {
+  @apply absolute inset-0 bg-black/0 transition-all duration-500 pointer-events-none;
+  z-index: 10;
+}
+
+.gallery-grid__item:hover .gallery-grid__image {
+  /* Hover zoom sutil nativo via CSS */
+  transform: scale(1.05);
+}
+
+.gallery-grid__item:hover .gallery-grid__overlay {
+  @apply bg-black/15;
+}
+
+/* Espaçamento maior para Superfícies e Texturas — obras de arte precisam de respiro */
+.gallery-grid--spaced {
+  column-gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid--spaced {
+    column-gap: 32px;
+  }
+}
+
+.gallery-grid--spaced .gallery-grid__item {
+  @apply mb-6 lg:mb-8;
+}

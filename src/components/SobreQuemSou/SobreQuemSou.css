@@ -1,0 +1,156 @@
+@reference "../../index.css";
+
+/* ─────────────────────────────────────────────
+   SOBRE — QUEM SOU
+   ───────────────────────────────────────────── */
+
+.sqsou {
+  @apply relative overflow-hidden bg-white;
+  padding-top: calc(6rem + 80px);
+  @apply pb-40 md:pb-64 lg:pb-80;
+}
+
+/* Grid editorial de fundo — 4 colunas sutis */
+.sqsou::before {
+  content: "";
+  @apply absolute inset-0 pointer-events-none z-0;
+  background-image:
+    linear-gradient(to right, rgba(17, 17, 17, 0.028) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+
+/* Linha horizontal de base no bottom */
+.sqsou::after {
+  content: "";
+  @apply absolute bottom-0 left-0 right-0 h-px pointer-events-none;
+  background: linear-gradient(to right, transparent, rgba(17, 17, 17, 0.08) 20%, rgba(17, 17, 17, 0.08) 80%, transparent);
+}
+
+/* ── Inner wrapper ── */
+.sqsou__inner {
+  @apply relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20;
+  @apply flex flex-col gap-14 md:gap-18;
+}
+
+/* ── Watermark decorativo: ano 1974 ── */
+.sqsou__watermark {
+  @apply absolute select-none pointer-events-none;
+  font-family: var(--font-serif);
+  font-size: clamp(11rem, 34vw, 38rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(17, 17, 17, 0.05);
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  user-select: none;
+  /* Evita scrollbar horizontal */
+  overflow: hidden;
+  max-width: 80vw;
+}
+
+/* ── Label de seção ── */
+.sqsou__label {
+  @apply relative z-10 flex items-center gap-4;
+  @apply text-[10px] uppercase tracking-[0.45em] text-[#111111]/45;
+  font-family: var(--font-sans);
+}
+
+.sqsou__label-line {
+  @apply block h-px w-14 bg-[#111111]/20 flex-shrink-0;
+}
+
+/* ── Título principal h1 ── */
+.sqsou__title {
+  @apply relative z-10;
+  font-family: var(--font-serif);
+  @apply text-7xl md:text-9xl lg:text-[10rem];
+  @apply font-normal text-[#111111] leading-[0.9] tracking-tight;
+}
+
+/* ── Divisor fino com ano ── */
+.sqsou__divider {
+  @apply relative z-10 flex items-center gap-6 w-full;
+}
+
+.sqsou__divider-line {
+  @apply flex-1 h-px bg-[#111111]/10;
+  transform-origin: left;
+}
+
+.sqsou__divider-year {
+  @apply text-[10px] uppercase tracking-[0.35em] flex-shrink-0;
+  color: rgba(17, 17, 17, 0.7);
+  font-family: var(--font-sans);
+}
+
+/* ── Bloco de bio — 2 colunas ── */
+.sqsou__bio {
+  @apply relative z-10;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20;
+  @apply max-w-5xl;
+}
+
+.sqsou__bio-col {
+  @apply flex flex-col gap-3;
+}
+
+/* Numeração editorial */
+.sqsou__bio-col:first-child::before {
+  content: "01";
+  @apply block text-[10px] tracking-[0.35em] mb-1;
+  color: rgba(17, 17, 17, 0.65);
+  font-family: var(--font-sans);
+}
+
+.sqsou__bio-col:last-child::before {
+  content: "02";
+  @apply block text-[10px] tracking-[0.35em] mb-1;
+  color: rgba(17, 17, 17, 0.65);
+  font-family: var(--font-sans);
+}
+
+.sqsou__paragraph {
+  @apply text-lg md:text-xl text-[#666666] font-light leading-relaxed;
+  font-family: var(--font-sans);
+}
+
+.sqsou__link {
+  @apply text-[#111111] font-normal no-underline;
+  @apply border-b border-[#111111]/25;
+  @apply transition-all duration-300 hover:border-[#111111];
+}
+
+/* ── Highlight / Prêmio ── */
+.sqsou__highlight {
+  @apply relative z-10 flex items-start gap-6;
+}
+
+.sqsou__highlight-accent {
+  @apply flex-shrink-0 mt-1;
+  @apply w-px h-12 bg-[#111111]/15;
+}
+
+.sqsou__highlight-content {
+  @apply flex flex-col gap-2;
+}
+
+.sqsou__highlight-text {
+  @apply text-[10px] uppercase tracking-[0.35em];
+  color: rgba(17, 17, 17, 0.7);
+  font-family: var(--font-sans);
+}
+
+.sqsou__highlight-award {
+  font-family: var(--font-serif);
+  @apply text-xl md:text-2xl font-normal text-[#111111] leading-snug;
+}
+
+.sqsou__highlight-year {
+  @apply text-[10px] uppercase tracking-[0.35em] mt-1;
+  color: rgba(17, 17, 17, 0.65);
+  font-family: var(--font-sans);
+}

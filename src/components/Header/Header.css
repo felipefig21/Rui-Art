@@ -1,0 +1,185 @@
+@reference "../../index.css";
+
+.site-header {
+  @apply fixed inset-x-0 top-0 z-50;
+}
+
+.site-header__frame {
+  @apply relative w-full overflow-hidden transition-[background-color,border-color,box-shadow] duration-500;
+}
+
+.site-header__frame::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.18);
+  pointer-events: none;
+}
+
+.site-header.is-solid .site-header__frame,
+.site-header.menu-open .site-header__frame {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 16px 48px rgba(17, 17, 17, 0.08);
+}
+
+.site-header.is-at-top .site-header__frame {
+  background: linear-gradient(to bottom, rgba(17, 17, 17, 0.8) 0%, rgba(17, 17, 17, 0) 100%);
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.site-header.is-at-top .site-header__frame::after {
+  opacity: 0;
+}
+
+.site-header__nav {
+  @apply mx-auto flex items-center justify-between max-w-[1600px] px-5 py-4 md:px-8 md:py-5 lg:px-12;
+}
+
+.site-header__brand-left {
+  @apply flex flex-col items-start no-underline;
+}
+
+.site-header__logo-name {
+  @apply text-2xl md:text-3xl tracking-tight transition-colors duration-500 leading-none mb-1;
+  font-family: var(--font-serif);
+}
+
+.site-header__location {
+  @apply text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 text-inherit opacity-60;
+  font-family: var(--font-sans);
+}
+
+.site-header__actions {
+  @apply flex items-center justify-end gap-6;
+}
+
+.site-header__links {
+  @apply hidden items-center gap-8 md:flex lg:gap-12;
+}
+
+.site-header__link {
+  @apply flex flex-col gap-2 text-[10px] uppercase tracking-[0.32em] no-underline transition-opacity duration-300 hover:opacity-70;
+  font-family: var(--font-sans);
+}
+
+.site-header__link-line {
+  @apply h-px w-full origin-left scale-x-0 transition-transform duration-300;
+}
+
+.site-header__link.is-active .site-header__link-line,
+.site-header__link:hover .site-header__link-line {
+  @apply scale-x-100;
+}
+
+.site-header__menu-toggle {
+  @apply flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border transition-colors duration-300 md:hidden;
+}
+
+.site-header__menu-toggle span {
+  @apply block h-px w-4 transition-transform duration-300;
+}
+
+.site-header.menu-open .site-header__menu-toggle span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.site-header.menu-open .site-header__menu-toggle span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.site-header__mobile-panel {
+  @apply overflow-hidden border-t;
+}
+
+.site-header__mobile-links {
+  @apply flex flex-col px-5 py-4;
+}
+
+.site-header__mobile-link {
+  @apply flex items-center justify-between border-b py-4 text-sm uppercase tracking-[0.24em] no-underline transition-opacity duration-300 hover:opacity-70;
+  font-family: var(--font-sans);
+}
+
+.site-header__mobile-link:last-child {
+  @apply border-b-0;
+}
+
+.site-header__mobile-index {
+  @apply text-[10px] tracking-[0.3em] opacity-50;
+}
+
+/* Scroll e Cores */
+.site-header.is-at-top .site-header__eyebrow,
+.site-header.is-at-top .site-header__brand-domain,
+.site-header.is-at-top .site-header__location,
+.site-header.is-at-top .site-header__link:not(.is-active) {
+  @apply text-white/70;
+}
+
+.site-header.is-at-top .site-header__brand-name,
+.site-header.is-at-top .site-header__link.is-active {
+  @apply text-white;
+}
+
+.site-header.is-at-top .site-header__link-line,
+.site-header.is-at-top .site-header__menu-toggle span {
+  background: white;
+}
+
+.site-header.is-at-top .site-header__menu-toggle {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-header.is-solid .site-header__eyebrow,
+.site-header.is-solid .site-header__brand-domain,
+.site-header.is-solid .site-header__location,
+.site-header.is-solid .site-header__link:not(.is-active) {
+  @apply text-[#6F6A63];
+}
+
+.site-header.menu-open .site-header__eyebrow,
+.site-header.menu-open .site-header__brand-domain,
+.site-header.is-at-top .site-header__logo-name,
+.site-header.is-at-top .site-header__link.is-active {
+  @apply text-white;
+}
+
+.site-header.is-solid .site-header__logo-name,
+.site-header.is-solid .site-header__link.is-active,
+.site-header.menu-open .site-header__logo-name,
+.site-header.menu-open .site-header__link.is-active,
+.site-header.menu-open .site-header__mobile-link.is-active {
+  @apply text-[#111111];
+}
+
+.site-header.is-solid .site-header__link-line,
+.site-header.is-solid .site-header__menu-toggle span,
+.site-header.menu-open .site-header__link-line,
+.site-header.menu-open .site-header__menu-toggle span {
+  background: rgba(17, 17, 17, 0.72);
+}
+
+.site-header.is-solid .site-header__menu-toggle,
+.site-header.menu-open .site-header__menu-toggle {
+  border-color: rgba(17, 17, 17, 0.12);
+}
+
+.site-header.menu-open .site-header__mobile-panel,
+.site-header.menu-open .site-header__mobile-link {
+  border-color: rgba(17, 17, 17, 0.08);
+}
+
+.site-header.menu-open .site-header__mobile-link {
+  @apply text-[#6F6A63];
+}
+
+@media (min-width: 768px) {
+  .site-header__brand {
+    @apply justify-self-center;
+  }
+}

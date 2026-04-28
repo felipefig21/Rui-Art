@@ -1,0 +1,35 @@
+@reference "../../index.css";
+
+.gallery-nav {
+  @apply sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-[#111111]/18;
+}
+
+.gallery-nav__container {
+  @apply max-w-7xl mx-auto px-6 flex items-center gap-6 md:gap-10 overflow-x-auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-nav__container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-nav__item {
+  @apply flex items-center gap-2 py-7 text-xs uppercase tracking-[0.3em] text-[#111111]/60
+         transition-all duration-500 cursor-pointer whitespace-nowrap
+         border-b-[1.5px] border-transparent
+         hover:text-[#111111] bg-transparent;
+  font-family: var(--font-sans);
+}
+
+.gallery-nav__item.is-active {
+  @apply text-[#111111] border-[#111111];
+}
+
+.gallery-nav__index {
+  @apply text-[9px] opacity-40;
+}
+
+.gallery-nav__label {
+  @apply font-medium;
+}

@@ -1,0 +1,57 @@
+@reference "../../index.css";
+
+.gallery-section {
+  @apply py-20 md:py-32 scroll-mt-20;
+}
+
+.gallery-section + .gallery-section {
+  @apply border-t border-[#111111]/5;
+}
+
+/* ── Header ── */
+.gallery-section__header {
+  @apply max-w-7xl mx-auto px-6 mb-14 md:mb-20;
+}
+
+.gallery-section__meta {
+  @apply mb-5;
+}
+
+.gallery-section__index {
+  @apply text-xs uppercase tracking-[0.3em] text-[#111111]/25 font-light;
+  font-family: var(--font-sans);
+}
+
+.gallery-section__title {
+  @apply text-5xl md:text-7xl lg:text-8xl font-normal text-[#111111] leading-[0.95] tracking-tight mb-5;
+  font-family: var(--font-serif);
+}
+
+.gallery-section__description {
+  @apply text-sm md:text-base text-[#6F6A63] font-light leading-relaxed max-w-2xl;
+  font-family: var(--font-sans);
+}
+
+.gallery-section__line {
+  @apply w-full h-px bg-[#111111]/5 mt-10 md:mt-14;
+}
+
+/* ── Em Breve ── */
+.gallery-section__coming-soon {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.gallery-section__coming-soon-inner {
+  @apply flex flex-col items-center justify-center py-28 md:py-36
+         border border-dashed border-[#111111]/8;
+}
+
+.gallery-section__coming-soon-text {
+  @apply text-3xl md:text-4xl text-[#111111]/70 tracking-tight mb-3;
+  font-family: var(--font-serif);
+}
+
+.gallery-section__coming-soon-sub {
+  @apply text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#111111]/50 font-light text-center px-4;
+  font-family: var(--font-sans);
+}

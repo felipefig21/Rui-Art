@@ -1,0 +1,78 @@
+@reference "../../index.css";
+
+.lightbox {
+  @apply fixed inset-0 z-[100] flex items-center justify-center;
+}
+
+.lightbox__backdrop {
+  @apply absolute inset-0 bg-black/92 backdrop-blur-xl cursor-pointer;
+}
+
+.lightbox__close {
+  @apply absolute top-6 right-6 z-50 text-white/50 hover:text-white
+         transition-all duration-300
+         w-12 h-12 flex items-center justify-center rounded-full
+         border border-white/10 hover:border-white/30
+         bg-transparent cursor-pointer;
+}
+
+.lightbox__content {
+  @apply relative z-10 flex items-center justify-center
+         w-full h-full px-6 md:px-20 lg:px-28 py-20 pointer-events-none;
+}
+
+.lightbox__image {
+  @apply max-w-full max-h-full object-contain select-none pointer-events-auto;
+}
+
+.lightbox__nav {
+  @apply absolute z-10 text-white/35 hover:text-white
+         transition-all duration-300
+         w-11 h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full
+         border border-white/8 hover:border-white/25
+         bg-transparent cursor-pointer pointer-events-auto;
+}
+
+.lightbox__nav--prev {
+  @apply left-3 md:left-8;
+}
+
+.lightbox__nav--next {
+  @apply right-3 md:right-8;
+}
+
+.lightbox__counter {
+  @apply absolute bottom-8 left-1/2 -translate-x-1/2 z-10
+         text-white/25 text-[10px] uppercase tracking-[0.4em];
+  font-family: var(--font-sans);
+}
+
+@keyframes contact-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
+  }
+}
+
+.lightbox__contact-btn {
+  @apply absolute bottom-6 right-6 md:bottom-8 md:right-8 z-10 
+         text-white/60 text-[10px] uppercase tracking-[0.2em]
+         transition-all duration-300
+         px-5 py-2.5 border border-white/10 rounded-full
+         bg-black/20 backdrop-blur-sm no-underline pointer-events-auto;
+  font-family: var(--font-sans);
+  animation: contact-pulse 2.5s infinite ease-in-out;
+}
+
+.lightbox__contact-btn:hover {
+  background-color: #25D366;
+  color: #000000;
+  border-color: #25D366;
+  animation-play-state: paused;
+}

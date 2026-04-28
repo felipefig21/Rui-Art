@@ -1,0 +1,221 @@
+@reference "../../index.css";
+
+/* ─────────────────────────────────────────────
+   SOBRE — ARTISTA (Timeline GSAP)
+   ───────────────────────────────────────────── */
+
+.sart {
+  @apply bg-[#F8F8F7] text-[#111111];
+  overflow: hidden;
+  position: relative;
+  height: 100vh; 
+}
+
+.sart__track {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding-left: 10vw;
+  width: max-content;
+  flex-wrap: nowrap;
+}
+
+/* Intro Hero */
+.sart__intro {
+  @apply flex flex-col md:flex-row items-center gap-10 md:gap-24;
+  width: 80vw;
+  max-width: 1100px;
+  flex-shrink: 0;
+  padding-right: 10vw;
+}
+
+.sart__intro-content {
+  @apply flex flex-col gap-6;
+  flex: 1;
+}
+
+.sart__intro-label {
+  @apply flex items-center gap-4 text-[10px] uppercase tracking-[0.45em] text-[#111111]/45;
+  font-family: var(--font-sans);
+}
+
+.sart__intro-label-line {
+  @apply block h-px w-14 bg-[#111111]/20 flex-shrink-0;
+}
+
+.sart__intro-title {
+  font-family: var(--font-serif);
+  @apply text-5xl md:text-6xl lg:text-8xl font-normal leading-[1.05] tracking-tight;
+}
+
+.sart__intro-desc {
+  @apply text-lg md:text-xl text-[#666666] font-light leading-relaxed max-w-md;
+  font-family: var(--font-sans);
+}
+
+.sart__intro-image-wrap {
+  @apply relative overflow-hidden bg-[#F3F3F3];
+  width: 100%;
+  flex: 1;
+  max-width: 480px;
+  aspect-ratio: 3 / 4;
+}
+
+.sart__intro-image {
+  @apply w-full h-full object-cover;
+  filter: grayscale(12%) contrast(1.04);
+}
+
+/* Corner brackets decorativos */
+.sart__corner {
+  @apply absolute w-7 h-7 pointer-events-none z-10;
+  border-color: rgba(17, 17, 17, 0.22);
+  border-style: solid;
+}
+.sart__corner--tl { top: 1rem; left: 1rem; border-width: 1px 0 0 1px; }
+.sart__corner--tr { top: 1rem; right: 1rem; border-width: 1px 1px 0 0; }
+.sart__corner--bl { bottom: 1rem; left: 1rem; border-width: 0 0 1px 1px; }
+.sart__corner--br { bottom: 1rem; right: 1rem; border-width: 0 1px 1px 0; }
+
+
+/* Timeline Items */
+.sart__items-container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  align-items: center;
+}
+
+.sart__timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+  transform: translateY(-50%);
+}
+
+.sart__timeline-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: #111111;
+  width: 0%;
+  transform: translateY(-50%);
+  transform-origin: left;
+}
+
+.sart__item {
+  width: 380px;
+  height: 100vh;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sart__item-connector {
+  position: absolute;
+  left: 40px;
+  width: 1px;
+  background: rgba(17, 17, 17, 0.2);
+}
+
+.sart__item.is-top .sart__item-connector {
+  bottom: 50%;
+  height: 60px;
+}
+.sart__item.is-bottom .sart__item-connector {
+  top: 50%;
+  height: 60px;
+}
+
+.sart__item-dot {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  width: 9px;
+  height: 9px;
+  background: #111111;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+.sart__item:hover .sart__item-dot {
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.sart__item-content-wrap {
+  position: absolute;
+  left: 40px;
+  width: 300px;
+}
+
+.sart__item.is-top .sart__item-content-wrap {
+  bottom: calc(50% + 60px + 16px);
+}
+
+.sart__item.is-bottom .sart__item-content-wrap {
+  top: calc(50% + 60px + 16px);
+}
+
+.sart__item-year {
+  font-family: var(--font-serif);
+  @apply text-5xl md:text-6xl font-normal text-[#111111] leading-none mb-4;
+}
+
+.sart__item-label {
+  @apply text-[10px] uppercase tracking-[0.45em] text-[#111111]/45 mb-3;
+  font-family: var(--font-sans);
+}
+
+.sart__item-desc {
+  @apply text-base text-[#666666] font-light leading-relaxed;
+  font-family: var(--font-sans);
+}
+
+.sart__spacer {
+  width: 20vw;
+  flex-shrink: 0;
+  height: 100vh;
+}
+
+.sart__scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 10vw;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  @apply text-[10px] uppercase tracking-[0.2em] text-[#111111]/40;
+  font-family: var(--font-sans);
+  z-index: 10;
+  animation: sartPulse 2s infinite;
+}
+
+@keyframes sartPulse {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(10px); }
+}
+
+/* Responsividade Básica para Mobile */
+@media (max-width: 768px) {
+  .sart__intro {
+    width: 100vw;
+    padding-left: 6vw;
+    padding-right: 15vw;
+    gap: 40px;
+  }
+  .sart__intro-title {
+    font-size: 3rem;
+  }
+  .sart__item {
+    width: 300px;
+  }
+  .sart__item-content-wrap {
+    width: 240px;
+  }
+  .sart__item-year {
+    font-size: 3rem;
+  }
+}

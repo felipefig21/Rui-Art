@@ -1,0 +1,41 @@
+@reference "../../index.css";
+
+/* Removi a borda daqui para usar apenas as linhas físicas no JSX */
+.select-gallery-wrapper {
+  @apply w-full bg-white;
+}
+
+.select-gallery-container {
+  @apply max-w-7xl mx-auto px-6 flex flex-row justify-between gap-4 md:gap-8 items-center;
+  /* Removido overflow e scrollbar hacks para evitar scroll interno indesejado */
+}
+
+.select-item {
+  @apply flex flex-col items-center gap-1 cursor-pointer transition-opacity duration-300 flex-shrink-0 relative py-2;
+}
+
+.select-text {
+  @apply text-sm uppercase tracking-[0.2em];
+  font-family: var(--font-sans);
+}
+
+.select-item:not(.active) .select-text {
+  @apply text-[#999999] font-normal;
+}
+
+.select-item.active .select-text {
+  @apply text-[#111111] font-medium;
+}
+
+/* Indicador de linha ativa discreto */
+.active-indicator {
+  @apply h-px bg-[#111111] w-0 transition-all duration-300;
+}
+
+.select-item.active .active-indicator {
+  @apply w-full;
+}
+
+.select-item:hover {
+  @apply opacity-60;
+}

@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* Utilitários Customizados para o Padrão de Design */
+@utility section-frame {
+  @apply border border-[#F3F3F3] bg-white;
+}
+
+/* Reset Global para Full Width */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-[#F8F8F7] text-[#111111] antialiased overflow-x-hidden w-full;
+  font-family: var(--font-sans);
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+/* Efeito Underline (Traço de Chegada) */
+.word-stroke {
+  height: 1px;
+  margin-top: 0.45rem;
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  @apply bg-[#111111] opacity-20;
+}
+
+.word-el.landed .word-stroke {
+  width: 100%;
+}

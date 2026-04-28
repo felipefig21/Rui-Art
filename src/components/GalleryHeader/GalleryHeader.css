@@ -1,0 +1,23 @@
+@reference "../../index.css";
+
+.gallery-header {
+  @apply relative h-screen w-full flex items-end bg-cover bg-center bg-no-repeat overflow-hidden;
+}
+
+.gallery-overlay {
+  @apply absolute inset-0 bg-black/30;
+}
+
+.gallery-container {
+  @apply absolute bottom-32 left-6 md:left-32 z-10 text-left w-full;
+}
+
+.gallery-title {
+  @apply text-7xl md:text-9xl lg:text-[10rem] font-normal text-white leading-[0.9] tracking-tight;
+  font-family: var(--font-serif);
+}
+
+.gallery-description {
+  @apply text-sm uppercase tracking-[0.4em] text-white/80 font-light mt-8;
+  font-family: var(--font-sans);
+}
