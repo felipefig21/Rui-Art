@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from "motion/react";
 import './Process.css';
-import videoThumbnail from '../../assets/video_thumbnail.jpg';
+import videoThumbnail from '../../assets/video_thumbnail.webp';
 
 const PlayPauseIcon = ({ isPlaying }) => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -208,8 +208,7 @@ function Process() {
           }
         });
 
-      } catch (error) {
-        console.error("Vimeo API Error:", error);
+      } catch {
         setIsLoaded(true); // Fallback
       }
     };
@@ -243,8 +242,8 @@ function Process() {
       const duration = await playerRef.current.getDuration();
       const newTime = Math.max(0, Math.min(currentTime + seconds, duration));
       await playerRef.current.setCurrentTime(newTime);
-    } catch (error) {
-      console.error("Seek error:", error);
+    } catch {
+      // Seek failed silently
     }
   };
 
@@ -287,6 +286,7 @@ function Process() {
                     src={videoThumbnail}
                     alt="Processo Criativo"
                     className="process-thumbnail-img"
+                    loading="lazy"
                   />
                 </motion.div>
               )}

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import './GalleryHeader.css';
-import mariaJuliaImg from '../../assets/1 Maria_Júlia.png';
+import mariaJuliaImg from '../../assets/1 Maria_Júlia.webp';
 
 function GalleryHeader() {
   const title = "Galeria";
@@ -20,16 +20,19 @@ function GalleryHeader() {
   };
 
   return (
-    <header 
-      className="gallery-header"
-      style={{ backgroundImage: `url("${mariaJuliaImg}")` }}
-    >
+    <header className="gallery-header">
+      <img
+        src={mariaJuliaImg}
+        alt=""
+        className="gallery-header__bg"
+        aria-hidden="true"
+      />
       <div className="gallery-overlay" />
       
       <div className="gallery-container">
-        <div className="flex overflow-hidden py-2 justify-start relative z-10">
+        <h1 className="flex overflow-hidden py-2 justify-start relative z-10">
           {title.split("").map((char, i) => (
-            <motion.h1
+            <motion.span
               key={i}
               custom={i}
               variants={charVariants}
@@ -39,9 +42,9 @@ function GalleryHeader() {
               style={{ perspective: "1000px" }}
             >
               {char}
-            </motion.h1>
+            </motion.span>
           ))}
-        </div>
+        </h1>
         <motion.p 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}

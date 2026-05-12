@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'motion/react';
 import './Contato.css';
-import san2728Img from '../assets/texturas/Obras Artista RCMARQUES SAN_2728 - 12 de fevereiro de 2026.png';
+import san2728Img from '../assets/texturas/Obras Artista RCMARQUES SAN_2728 - 12 de fevereiro de 2026.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,7 +89,7 @@ export default function Contato() {
         {/* Left Column: Artwork Presentation */}
         <div className="contato__showcase-image">
           <div className="contato__showcase-img-wrap">
-            <img src={san2728Img} alt="SAN_2728" className="contato__showcase-img" />
+            <img src={san2728Img} alt="SAN_2728" className="contato__showcase-img" loading="lazy" />
           </div>
           <div className="contato__showcase-caption">
             <span className="contato__showcase-title">Artista Rui Costa Marques</span>
@@ -127,7 +127,9 @@ export default function Contato() {
           Estou disponível para entender o seu espaço e ajudar na escolha da obra ideal. Seja uma tela imponente, uma fotografia exclusiva ou uma colagem provocativa. Solicite o catálogo completo ou agende uma consultoria sem compromisso.
         </p>
         <a 
-          href="mailto:contato@rui-art.com" 
+          href="https://wa.me/5521991244282?text=Ol%C3%A1%20gostaria%20de%20saber%20mais%20sobre%20as%20suas%20artes" 
+          target="_blank" 
+          rel="noopener noreferrer"
           className="contato__btn"
         >
           Iniciar Atendimento Exclusivo

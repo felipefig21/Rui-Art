@@ -5,7 +5,7 @@
 }
 
 .footer-container {
-  @apply max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12;
+  @apply max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-12;
 }
 
 .footer-logo {

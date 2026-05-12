@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './AboutArtist.css';
 import { motion } from "motion/react";
-import aboutImg from '../../assets/about_artist_img.png';
 
 const ArrowIcon = () => (
   <svg 

@@ -50,10 +50,6 @@ function Header() {
     >
       <div className="site-header__frame">
         <nav className="site-header__nav" aria-label="Principal">
-          <div className="site-header__brand-left">
-            {/* Texto movido para o Hero conforme solicitado */}
-          </div>
-
           <div className="site-header__actions">
             <div className="site-header__links">
               {NAV_ITEMS.map((item) => {

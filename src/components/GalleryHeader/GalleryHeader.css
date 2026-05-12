@@ -1,7 +1,11 @@
 @reference "../../index.css";
 
 .gallery-header {
-  @apply relative h-screen w-full flex items-end bg-cover bg-center bg-no-repeat overflow-hidden;
+  @apply relative h-screen w-full flex items-end overflow-hidden;
+}
+
+.gallery-header__bg {
+  @apply absolute inset-0 w-full h-full object-cover object-center;
 }
 
 .gallery-overlay {

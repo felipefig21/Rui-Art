@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import './Hero.css';
-import heroImage from '../../assets/Heroimg.jpeg';
+import heroImage from '../../assets/Heroimg.webp';
 
 function Hero() {
   return (
@@ -10,6 +10,7 @@ function Hero() {
           src={heroImage}
           alt="Rui Costa Marques"
           className="hero-image"
+          fetchpriority="high"
         />
         <div className="hero-overlay" />
       </div>

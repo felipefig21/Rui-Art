@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './SobreArtista.css';
-import artistImg from '../../assets/timeline/adaf7536-7a42-4b20-aceb-7e3c4632c351.jfif';
+import artistImg from '../../assets/timeline/adaf7536-7a42-4b20-aceb-7e3c4632c351.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -166,7 +166,7 @@ export default function SobreArtista() {
             </p>
           </div>
           <div className="sart__intro-image-wrap">
-            <img src={artistImg} alt="Rui Costa Marques trabalhando" className="sart__intro-image" />
+            <img src={artistImg} alt="Rui Costa Marques trabalhando" className="sart__intro-image" loading="lazy" />
             <span className="sart__corner sart__corner--tl" />
             <span className="sart__corner sart__corner--tr" />
             <span className="sart__corner sart__corner--bl" />

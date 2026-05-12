@@ -4,27 +4,27 @@
 
 // Import via glob (Vite resolve em build-time)
 const obrasModules = import.meta.glob(
-  '../assets/obras_ambientadas/*.png',
+  '../assets/obras_ambientadas/*.webp',
   { eager: true }
 );
 
 const modulosModules = import.meta.glob(
-  '../assets/modulos_digitais/*.png',
+  '../assets/modulos_digitais/*.webp',
   { eager: true }
 );
 
 const pbModules = import.meta.glob(
-  '../assets/Fotografias_P&B/*.png',
+  '../assets/Fotografias_P&B/*.webp',
   { eager: true }
 );
 
 const corModules = import.meta.glob(
-  '../assets/forosemcor/*.png',
+  '../assets/forosemcor/*.webp',
   { eager: true }
 );
 
 const texturasModules = import.meta.glob(
-  '../assets/texturas/*.png',
+  '../assets/texturas/*.webp',
   { eager: true }
 );
 
@@ -53,7 +53,7 @@ export const galleryTopics = [
     title: 'Obras Ambientadas',
     description:
       'Telas apresentadas em ambientes reais, em escala natural, para melhor leitura de proporção, cor e presença no espaço.',
-    images: processImages(obrasModules, ['SAN_2701.png']),
+    images: processImages(obrasModules, ['SAN_2701.webp']),
     comingSoon: false,
   },
   {
